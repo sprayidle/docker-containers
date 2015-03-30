@@ -7,7 +7,7 @@
     [b]/config[/b] : i this path, SickRage will stores it's configuration files.[br]
     [b]/downloads[/b] : this path is used retrieve the downloaded files by your downloader application (e.g. SABnzbd or NZBGet)[br]
   </Description>
-  <Registry>https://registry.hub.docker.com/u/linuxkonsult/utorrent-server/</Registry>
+  <Registry>https://registry.hub.docker.com/u/linuxkonsult/linux/utorrent-server/</Registry>
   <GitHub>https://github.com/proppen/docker</GitHub>
   <Repository>linuxkonsult/utorrent</Repository>
   <BindTime>true</BindTime>
