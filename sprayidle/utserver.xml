@@ -4,7 +4,7 @@
   <Description>
     uTorrent Server[br]
     [b][span style='color: #E80000;']Directions:[/span][/b][br]
-    Set container ports for webui [8080] and connections [6881].[br]
+    Set container ports for webui (8080) and connections (6881).[br]
     [b]/config[/b] : Where uTorrent will stores it's configuration files.[br]
     [b]/downloads[/b] : Path to downloads[br]
   </Description>
