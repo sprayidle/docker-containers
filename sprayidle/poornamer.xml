@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container>
+  <Name>uTorrent Server</Name>
+  <Description>
+    uTorrent Server[br]
+    [b][span style='color: #E80000;']Directions:[/span][/b][br]
+    Set container ports for webui (8080) and connections (6881).[br]
+    [b]/config[/b] : Where uTorrent will stores it's configuration files.[br]
+    [b]/downloads[/b] : Path to downloads[br]
+  </Description>
+  <Registry>https://registry.hub.docker.com/u/sprayidle/utserver/</Registry>
+  <GitHub>https://github.com/sprayidle/docker-utserver</GitHub>
+  <Repository>sprayidle/utserver</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8080</HostPort>
+        <ContainerPort>8080</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>6881</HostPort>
+        <ContainerPort>6881</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/utorrent</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/downloads</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <WebUI>http://[IP]:[PORT:8080]/</WebUI>
+  <Banner>http://i.imgur.com/qFt8KGC.png</Banner>
+  <Icon>http://i.imgur.com/VQdjFVJ.png</Icon>
+</Container>
