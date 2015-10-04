@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Container>
-  <Name>uTorrent Server</Name>
+  <Name>Poornamer</Name>
   <Description>
-    uTorrent Server[br]
+    Poornamer[br]
     [b][span style='color: #E80000;']Directions:[/span][/b][br]
-    Set container ports for webui (8080) and connections (6881).[br]
-    [b]/config[/b] : Where uTorrent will stores it's configuration files.[br]
-    [b]/downloads[/b] : Path to downloads[br]
+    Set container port for webui (8080).[br]
+    [b]/config[/b] : Where Poornamer will store its configuration files.[br]
+    [b]/source[/b] : Path to python scripts[br]
+    [b]/unprocessed[/b] : Path to downloads[br]
+    [b]/processed[/b] : Path to move files[br]
   </Description>
-  <Registry>https://registry.hub.docker.com/u/sprayidle/utserver/</Registry>
-  <GitHub>https://github.com/sprayidle/docker-utserver</GitHub>
-  <Repository>sprayidle/utserver</Repository>
+  <Registry>https://registry.hub.docker.com/u/sprayidle/poornamer/</Registry>
+  <GitHub>https://github.com/sprayidle/docker-poornamer</GitHub>
+  <Repository>sprayidle/poornamer</Repository>
   <BindTime>true</BindTime>
   <Privileged>false</Privileged>
   <Networking>
@@ -21,26 +23,30 @@
         <ContainerPort>8080</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
-      <Port>
-        <HostPort>6881</HostPort>
-        <ContainerPort>6881</ContainerPort>
-        <Protocol>tcp</Protocol>
-      </Port>
     </Publish>
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/user/appdata/utorrent</HostDir>
+      <HostDir>/mnt/user/appdata/poornamer</HostDir>
       <ContainerDir>/config</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir></HostDir>
-      <ContainerDir>/downloads</ContainerDir>
+      <HostDir>/mnt/user/projects/poornamer</HostDir>
+      <ContainerDir>/source</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/Other Video/Tosort</HostDir>
+      <ContainerDir>/unprocessed</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/Other Video/Sorted</HostDir>
+      <ContainerDir>/processed</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
   <WebUI>http://[IP]:[PORT:8080]/</WebUI>
-  <Banner>http://i.imgur.com/qFt8KGC.png</Banner>
-  <Icon>http://i.imgur.com/VQdjFVJ.png</Icon>
+  <Icon>http://i.imgur.com/HrlALtt.png</Icon>
 </Container>
