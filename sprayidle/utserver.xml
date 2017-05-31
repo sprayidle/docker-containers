@@ -13,6 +13,16 @@
   <Repository>sprayidle/utserver</Repository>
   <BindTime>true</BindTime>
   <Privileged>false</Privileged>
+  <Environment>
+    <Variable>
+      <Name>webport</Name>
+      <Value>8083</Value>
+    </Variable>
+    <Variable>
+      <Name>connport</Name>
+      <Value>6881</Value>
+    </Variable>
+  </Environment>
   <Networking>
     <Mode>bridge</Mode>
     <Publish>
