@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Container>
-  <Name>Direno</Name>
-  <Description>
-    Direno[br]
-    [b][span style='color: #E80000;']Directions:[/span][/b][br]
-    Set container port for webui (5000).[br]
-    [b]/config[/b] : Where direno will store its configuration files.[br]
-  </Description>
-  <Registry>https://registry.hub.docker.com/u/sprayidle/direno/</Registry>
-  <GitHub>https://github.com/sprayidle/docker-direno</GitHub>
+<Container version="2">
+  <Name>Direno2</Name>
   <Repository>sprayidle/direno</Repository>
-  <BindTime>true</BindTime>
+  <Registry>https://registry.hub.docker.com/u/sprayidle/direno/</Registry>
+  <Network>bridge</Network>
+  <Shell>bash</Shell>
   <Privileged>false</Privileged>
+  <Overview>&#xD;
+    Direno[br]&#xD;
+    [b][span style='color: #E80000;']Directions:[/span][/b][br]&#xD;
+    Set container port for webui (5000).[br]&#xD;
+    [b]/config[/b] : Where direno will store its configuration files.[br]&#xD;
+  </Overview>
+  <WebUI>http://[IP]:[PORT:5000]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/sprayidle/unraid-docker-templates/master/sprayidle/direno.xml</TemplateURL>
+  <Icon>https://i.imgur.com/bY3YIlw.png</Icon>
+  <Description>&#xD;
+    Direno[br]&#xD;
+    [b][span style='color: #E80000;']Directions:[/span][/b][br]&#xD;
+    Set container port for webui (5000).[br]&#xD;
+    [b]/config[/b] : Where direno will store its configuration files.[br]&#xD;
+  </Description>
   <Networking>
     <Mode>bridge</Mode>
     <Publish>
@@ -24,11 +33,38 @@
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/user/appdata/direno</HostDir>
+      <HostDir>/mnt/user/appdata/direno2</HostDir>
       <ContainerDir>/config</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
-  <WebUI>http://[IP]:[PORT:5000]/</WebUI>
-  <Icon>https://i.imgur.com/bY3YIlw.png</Icon>
+  <Environment>
+    <Variable>
+      <Value></Value>
+      <Name>OAUTH</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>sprayidle</Value>
+      <Name>USERNAME</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>99</Value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>100</Value>
+      <Name>PGID</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Host Port 1" Target="5000" Default="5000" Mode="tcp" Description="Container Port: 5000" Type="Port" Display="always" Required="true" Mask="false">5000</Config>
+  <Config Name="OAuth Token" Target="OAUTH" Default="" Mode="" Description="OAuth Token for GitHub Repository" Type="Variable" Display="always-hide" Required="true" Mask="true"></Config>
+  <Config Name="Username" Target="USERNAME" Default="" Mode="" Description="Username for GitHub Repository" Type="Variable" Display="always-hide" Required="true" Mask="false">sprayidle</Config>
+  <Config Name="AppData Config Path" Target="/config" Default="/mnt/user/appdata/Direno" Mode="rw" Description="Container Path: /config" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/user/appdata/direno2</Config>
+  <Config Name="Key 1" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">99</Config>
+  <Config Name="Key 2" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">100</Config>
 </Container>
